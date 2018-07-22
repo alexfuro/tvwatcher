@@ -19,13 +19,22 @@ const sample = [
 class App extends Component {
   constructor(props){
     super(props);
-    this.state = {shows: sample};
+    this.state = {shows: this.load()};
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.toggleStatus = this.toggleStatus.bind(this);
   }
   save(shows) {
     this.setState({shows});
+    localStorage.setItem("shows", JSON.stringify(shows));
+  }
+  load() {
+    if (localStorage.getItem("shows") == null) {
+      return sample;
+    }else{
+      const shows = JSON.parse(localStorage.getItem("shows"));
+      return shows;
+    }
   }
   newShow(event){
     const title = event.target.children[2].value;
