@@ -18,7 +18,8 @@ class WatchList extends Component {
             </thead>
             <tbody>
             {shows.map((show,index)=>(
-                <Show show={show} key={index} id={index}/>
+                <Show show={show} key={index} id={index}
+                onDelete={this.props.onDelete} onToggleStatus={this.props.toggleStatus}/>
                 ))}
             </tbody>
         </table>

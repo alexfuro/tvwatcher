@@ -8,8 +8,8 @@ class Show extends Component {
       <tr>
         <td>{show.title}</td>
         <td>{show.status? "watched" : "unwatched"}</td>
-        <td><button>Change Status</button></td>
-        <td><button>Delete Show</button></td>
+        <td><button onClick={() => this.props.onToggleStatus(this.props.id)}>Change Status</button></td>
+        <td><button onClick={() => this.props.onDelete(this.props.id)}className="deleteAction">Delete Show</button></td>
       </tr>
     );
   }
