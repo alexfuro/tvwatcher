@@ -9,7 +9,7 @@ class Show extends Component {
         <td>{show.title}</td>
         <td>{show.status? "watched" : "unwatched"}</td>
         <td><button>Change Status</button></td>
-        <td><button>Delete Book</button></td>
+        <td><button>Delete Show</button></td>
       </tr>
     );
   }
