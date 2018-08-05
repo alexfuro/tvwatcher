@@ -78,7 +78,7 @@ class ShowManager extends Component {
   }
   render() {
     return (
-      <div className="ShowManager">
+      <div className="show-manager">
         <ShowList shows={this.state.shows} onDelete={this.handleDelete} toggleStatus={this.toggleStatus} />
         <ShowForm onSubmit={this.handleSubmit}/>
       </div>
