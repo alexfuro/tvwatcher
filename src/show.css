@@ -1,0 +1,8 @@
+ul {
+    list-style: none;
+    display: inline;
+}
+li {
+    display: inline-block;
+    padding: 5px;
+}
