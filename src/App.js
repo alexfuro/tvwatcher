@@ -7,9 +7,9 @@ import firebaseui from 'firebaseui';
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">The Watchlist!</h1>
+      <div className="app">
+        <header className="app-header">
+          <h1 className="app-title">The Watchlist!</h1>
         </header>
         <ShowManager />
       </div>
