@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './showmanager.css';
 import ShowList from './showlist';
 import ShowForm from './showform';
+import firebase from 'firebase';
 
 const sample = [
   {
@@ -19,22 +20,34 @@ const sample = [
 class ShowManager extends Component {
   constructor(props){
     super(props);
-    this.state = {shows: this.load()};
+    this.state = {shows: []};
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.toggleStatus = this.toggleStatus.bind(this);
+    this.componentDidMount = this.componentDidMount.bind(this);
+  }
+  async componentDidMount(){
+    const shows = await this.fireLoad();
+    this.load(shows);
   }
   save(shows) {
     this.setState({shows});
-    localStorage.setItem("shows", JSON.stringify(shows));
+    firebase.database().ref(`users/${this.props.user}/shows/`).set(
+      shows
+    );
   }
-  load() {
-    if (localStorage.getItem("shows") == null) {
-      return sample;
-    }else{
-      const shows = JSON.parse(localStorage.getItem("shows"));
-      return shows;
+  load(shows) {
+    if(shows === null) {
+      shows = sample;
     }
+    this.setState({shows});
+  }
+  fireLoad () {
+    return firebase.database().ref(`users/${this.props.user}/shows/`)
+    .once('value')
+    .then(function(snapshot){
+       return snapshot.val();
+    });
   }
   newShow(event){
     const title = event.target.children[2].value;

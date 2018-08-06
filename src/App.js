@@ -12,7 +12,7 @@ class App extends Component {
             <h1 className="app-title">The Watchlist!</h1>
             <button onClick={ () => firebase.auth().signOut() }>Sign Out</button>
           </header>
-          <ShowManager />
+          <ShowManager user={this.props.user.uid} db={this.props.db}/>
         </div>
       );
     } else {
