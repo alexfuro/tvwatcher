@@ -1,5 +1,8 @@
 .watch-list{
     margin: 0 auto;
-    padding: 20px 0;
+    padding-bottom: 20px;
     width: 90%;
+}
+.watch-list h2 {
+    padding-top: 0;
 }
