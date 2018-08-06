@@ -4,7 +4,7 @@ import './showform.css';
 class ShowForm extends Component {
   render() {
     return (
-      <form className="ShowForm" onSubmit={this.props.onSubmit}>
+      <form className="show-form" onSubmit={this.props.onSubmit}>
          <legend>Add to Watchlist</legend>
          <label>Title:</label>
          <input type="text" name="title" placeholder="title" />

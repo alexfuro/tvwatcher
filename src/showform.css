@@ -1,0 +1,19 @@
+.show-form {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    background-color: #EEEEEE;
+    padding: 15px 5px;
+}
+.show-form legend {
+    padding-bottom: 15px;
+}
+input, label {
+    padding: 5px 0;
+}
+input[type='checkbox'] {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 5px;
+}
