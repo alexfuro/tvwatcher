@@ -9,7 +9,7 @@ class App extends Component {
       return (
         <div className="app">
           <header className="app-header">
-            <h1 className="app-title">The Watchlist!</h1>
+            <h1 className="app-title">TV Watcher</h1>
             <button onClick={ () => firebase.auth().signOut() }>Sign Out</button>
           </header>
           <ShowManager user={this.props.user.uid} db={this.props.db}/>

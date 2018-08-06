@@ -8,8 +8,11 @@
 }
 
 .app-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
   background-color: #222;
-  height: 150px;
+  height: 50px;
   padding: 20px;
   color: white;
 }
