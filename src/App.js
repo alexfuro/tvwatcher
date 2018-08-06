@@ -2,18 +2,28 @@ import React, { Component } from 'react';
 import './App.css';
 import ShowManager from './showmanager';
 import firebase from 'firebase';
-import firebaseui from 'firebaseui';
 
 class App extends Component {
   render() {
-    return (
-      <div className="app">
-        <header className="app-header">
-          <h1 className="app-title">The Watchlist!</h1>
-        </header>
-        <ShowManager />
-      </div>
-    );
+    if (this.props.user) {
+      return (
+        <div className="app">
+          <header className="app-header">
+            <h1 className="app-title">The Watchlist!</h1>
+            <button onClick={ () => firebase.auth().signOut() }>Sign Out</button>
+          </header>
+          <ShowManager />
+        </div>
+      );
+    } else {
+      return (
+        <div className="app">
+          <header className="app-header">
+            <h1 className="app-title">The Watchlist!</h1>
+          </header>
+        </div>
+      );
+    }    
   }
 }
 
