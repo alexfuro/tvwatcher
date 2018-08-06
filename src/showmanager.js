@@ -6,13 +6,13 @@ import firebase from 'firebase';
 
 const sample = [
   {
-    title: "Juni Taisen",
+    title: "Late Nite",
     status: true
   },{
-    title: "Mirai Nikki",
+    title: "Law and Order",
     status: true
   },{
-    title: "Boku no Hero",
+    title: "CSI Iceland!",
     status: false
   }
 ];
