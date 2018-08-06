@@ -4,7 +4,8 @@
     flex-direction: column;
     width: 80%;
     background-color: #EEEEEE;
-    padding: 15px 5px;
+    border: 1px solid #DDDDDD;
+    padding: 15px 3px;
 }
 .show-form legend {
     padding-bottom: 15px;
