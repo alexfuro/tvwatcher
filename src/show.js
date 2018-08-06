@@ -7,7 +7,7 @@ class Show extends Component {
     return (
       <div className="show">
         <span>{show.title}</span>
-        <ul class="show-edits">
+        <ul className="show-edits">
           <li>
             {show.status? "watched" : "unwatched"}
           </li>
