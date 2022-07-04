@@ -1,5 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
@@ -16,6 +16,7 @@ let config = {
     messagingSenderId: "1057377940886"
 };
 firebase.initializeApp(config);
+
 //Initialize Firebase Auth UI
 let fireUi = new firebaseui.auth.AuthUI(firebase.auth());
 let uiConfig = {
@@ -24,11 +25,17 @@ signInOptions: [
     firebase.auth.GoogleAuthProvider.PROVIDER_ID,
     firebase.auth.EmailAuthProvider.PROVIDER_ID
 ],
+
 // Terms of service url.
 tosUrl: '<your-tos-url>',
 // Privacy policy url.
 privacyPolicyUrl: '<your-privacy-policy-url>'
 };
+
+// Set up entry point
+const container = document.getElementById('root');
+const root = createRoot(container);
+
 fireUi.start('#firebaseui-container', uiConfig);
 //on auth change display login
 firebase.auth().onAuthStateChanged( user => {
@@ -37,6 +44,6 @@ firebase.auth().onAuthStateChanged( user => {
     } else {
         document.getElementById('firebaseui-container').style.display = 'block';
     }
-    ReactDOM.render(<App user={user}/>, document.getElementById('root'));
+    root.render(<App user={user}/>);
     registerServiceWorker();
 });
